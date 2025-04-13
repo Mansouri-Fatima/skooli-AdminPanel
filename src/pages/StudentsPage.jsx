@@ -81,9 +81,13 @@ const StudentsPage = () => {
     { label: "Photo", field: "photo", render: (row) => <img src={row.photo || "/default-user.png"} alt="User" className="w-10 h-10 rounded-full mx-auto" /> },
     { label: "First Name", field: "firstName", render: (row) => row.first_name },
     { label: "Last Name", field: "lastName", render: (row) => row.last_name },
-    { label: "Parent Email", field: "parent", render: (row) => row.parent_email },
     { label: "Level", field: "level", render: (row) => row.level },
+    { label: "Study Year", field: "studyyear", render: (row) => row.study_year },
+    { label: "group", field: "group", render: (row) => row.group_id },
+    { label: "Parent Email", field: "parent", render: (row) => row.parent_email },
     { label: "Email", field: "email", render: (row) => row.email },
+   
+
     {
       label: "Action",
       field: "actions",

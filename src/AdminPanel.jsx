@@ -8,7 +8,10 @@ import UsersPage from "./pages/UsersPage";
 import PStudentsPage from "./pages/PStudentsPage";
 import TimeTablePage from "./pages/TimeTablePage";
 import TimeTableListPage from "./pages/TimeTableListPage";
-import TimeTableDetailsPage from "./pages/TimeTableDetailsPage"; // Correction ici ✅
+import TimeTableDetailsPage from "./pages/TimeTableDetailsPage"; 
+import AssignTeachersPage from "./pages/AssignTeachersPage";
+import TeachersDetailsPage from "./pages/TeachersDetailsPage";
+
 
 const AdminPanel = () => {
   return (
@@ -17,7 +20,7 @@ const AdminPanel = () => {
         <Sidebar />
         <div className="flex-1">
           <Routes>
-            <Route path="/admin" element={<StudentsPage />} /> {/* Page par défaut */}
+            <Route path="/admin" element={<StudentsPage />} /> 
             <Route path="/students" element={<StudentsPage />} />
             <Route path="/teachers" element={<TeachersPage />} />
             <Route path="/parents" element={<ParentsPage />} />
@@ -26,6 +29,9 @@ const AdminPanel = () => {
             <Route path="/time-table-list" element={<TimeTableListPage />} />
             <Route path="/time-table/create" element={<TimeTablePage />} />
             <Route path="/time-table/:id" element={<TimeTableDetailsPage />} />
+            <Route path="/assign-teachers" element={<AssignTeachersPage />} />
+            <Route path="/teachers-timetable/:teacherName" element={<TeachersDetailsPage />} />
+
           </Routes>
         </div>
       </div>

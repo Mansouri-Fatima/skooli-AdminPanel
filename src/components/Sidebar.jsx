@@ -19,7 +19,7 @@ import calendarIconActive from "../assets/icons/Calendar-active.png";
 
 
 const Sidebar = () => {
-  const location = useLocation(); 
+  const location = useLocation();
 
   return (
     <div className="fixed left-0 top-0 w-[268px] h-full bg-[#52BD94E8] text-white flex flex-col p-5  shadow-lg z-40  overflow-visible">
@@ -37,14 +37,14 @@ const Sidebar = () => {
           <SidebarItem to="/teachers" icon={teacherIcon} iconActive={teacherIconActive} text="Teachers" active={location.pathname === "/teachers"} />
           <SidebarItem to="/parents" icon={parentIcon} iconActive={parentIconActive} text="Parents" active={location.pathname === "/parents"} />
           <SidebarItem to="/p-students" icon={pStudentIcon} iconActive={pStudentIconActive} text="P-Students" active={location.pathname === "/p-students"} />
-          <SidebarItem 
-  to="/time-table-list" 
-  icon={calendarIcon} 
-  iconActive={calendarIconActive} 
-  text="Time Table" 
-  active={location.pathname.startsWith("/time-table")} 
-/>
-</ul>
+          <SidebarItem
+            to="/time-table-list"
+            icon={calendarIcon}
+            iconActive={calendarIconActive}
+            text="Time Table"
+            active={location.pathname.startsWith("/time-table")}
+          />
+        </ul>
       </nav>
     </div>
   );
