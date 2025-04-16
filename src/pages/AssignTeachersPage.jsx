@@ -11,12 +11,12 @@ const subjects = [
 ];
 
 const teachers = [
-  "Mr. Smith", "Ms. Johnson", "Dr. Brown", "Mrs. White"
+  "Azza Mohammed","Keskes Nabil","Baba Ahmed Manel","Nadia Kies","Bensnenane Hamdanne","Kelouche Badia","Bencherif Kheira","Srir Kheira","aimer Rihem","Mansouri Fatima ","Guessi Khouloud","Adem Maroua"
 ];
 
-const levels = ["Middle School", "High School"];
-const grades = ["1th", "2th", "3th", "4th"];
-const groups = ["Group 1", "Group 2", "Group 3"];
+const levels = ["Middle School"];
+const grades = ["1st", "2nd", "3rd", "4th"];
+const groups = ["Group 1", "Group 2", "Group 3","Groupe 4","Groupe 5"];
 
 const AssignTeachersPage = () => {
   const [selectedFilters, setSelectedFilters] = useState({
@@ -27,37 +27,7 @@ const AssignTeachersPage = () => {
   const [assignments, setAssignments] = useState({});
   const navigate = useNavigate();
   const location = useLocation();  // Get the location of the current page
-
-  useEffect(() => {
-    // Force reset the page when coming from "Create More"
-    if (location.state?.fromCreateNew) {
-      // Clear the localStorage
-      localStorage.removeItem("filters");
-      localStorage.removeItem("teacherAssignments");
-
-      // Reset the state explicitly
-      setSelectedFilters({
-        level: "",
-        grade: "",
-        group: "",
-      });
-      setAssignments({});
-    } else {
-      // Otherwise, load data from localStorage
-      const savedFilters = JSON.parse(localStorage.getItem("filters"));
-      const savedAssignments = JSON.parse(localStorage.getItem("teacherAssignments"));
-
-      // If saved filters exist, set them in the state
-      if (savedFilters) {
-        setSelectedFilters(savedFilters);
-      }
-
-      // If saved assignments exist, set them in the state
-      if (savedAssignments) {
-        setAssignments(savedAssignments.assignments);
-      }
-    }
-  }, [location.state]); // Runs whenever location state changes
+ // Runs whenever location state changes
 
   const handleFilterChange = (e) => {
     const { name, value } = e.target;
@@ -74,9 +44,25 @@ const AssignTeachersPage = () => {
     }));
   };
 
+  const checkIfAssignmentExist = (data) => {
+    const {level , grade , group} = data;
+    const savedTimetables = JSON.parse(localStorage.getItem("timetables"));
+
+    const idx = savedTimetables.findIndex(item => item.grade == grade && item.group == group)
+    if ( idx  == -1) {
+      return false
+    }
+
+    return true;
+  }
+
   const handleSaveAssignments = () => {
     const { level, grade, group } = selectedFilters;
 
+   if ( checkIfAssignmentExist({level , grade , group}) ) {
+     alert("Time tables already exist");
+     return;
+    }
     if (!level || !grade || !group) {
       alert("Please select level, grade, and group before saving.");
       return;

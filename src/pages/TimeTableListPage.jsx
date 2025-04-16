@@ -212,7 +212,7 @@ const TimeTableListPage = () => {
                             >
 
                                 <div>
-                                    <h2 className="font-bold">{teacher}</h2>
+                                    <h2 className="font-bold">{teacher} - {entries[0].module}</h2>
                                    
                                     <div className="text-gray-500 mt-1">
     {entries.length > 0 && entries[0]?.grade ? (
@@ -221,7 +221,7 @@ const TimeTableListPage = () => {
         <p>No grade available</p>
     )}
 </div>
-<button onClick={() => alert(JSON.stringify(entries[0], null, 2))}>Check structure</button>
+
                                     <div
                                         className="flex items-center gap-2 text-gray-500 cursor-pointer"
                                         onClick={() => navigate(`/time-table/${index}`)}

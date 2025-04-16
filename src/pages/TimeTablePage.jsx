@@ -77,7 +77,8 @@ export default function TimeTablePage() {
       group,
       level,
       subjects: selectedSubjects,
-      teachers: assignments
+      teachers: assignments,
+      grade
     };
 
     const savedTimetables = JSON.parse(localStorage.getItem("timetables")) || [];
