@@ -167,7 +167,7 @@ const UsersPage = () => {
 
 
   return (
-    <div className="flex min-h-screen w-full bg-gray-100">
+    <div className="flex min-h-screen w-full bg-[#e8f5f0]">
       {/* Sidebar */}
       <div className="w-[250px] h-screen fixed left-0 top-0 bg-white shadow-md">
         <Sidebar />

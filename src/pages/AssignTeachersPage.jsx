@@ -85,7 +85,7 @@ const AssignTeachersPage = () => {
 
   return (
     <div className="flex h-screen overflow-hidden">
-      <div className="w-64 bg-gray-50 h-screen fixed left-0 top-0">
+      <div className="w-64 bg-[#e8f5f0] h-screen fixed left-0 top-0">
         <Sidebar />
       </div>
 

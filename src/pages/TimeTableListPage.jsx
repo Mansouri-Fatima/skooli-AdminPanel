@@ -32,12 +32,15 @@ const TimeTableListPage = () => {
 
     const toTeachersTT = (savedTimetables) => {
         const teachersTT = [];
-
+    
         savedTimetables.forEach((tt) => {
-            const { subjects, teachers, group,grade } = tt;
-
+            // Sécurité : ignorer tt invalide
+            if (!tt || !tt.subjects || !tt.teachers) return;
+    
+            const { subjects, teachers, group, grade } = tt;
+    
             Object.entries(subjects).forEach(([day, schedule]) => {
-                Object.entries(schedule).forEach(([time, module]) => {
+                Object.entries(schedule || {}).forEach(([time, module]) => {
                     const teacher = teachers[module];
                     if (teacher) {
                         teachersTT.push({
@@ -45,15 +48,16 @@ const TimeTableListPage = () => {
                             time: `${day} ${time}`,
                             module,
                             group,
-                            grade 
+                            grade
                         });
                     }
                 });
             });
         });
-
+    
         return teachersTT;
     };
+    
 
 
     useEffect(() => {
@@ -109,7 +113,7 @@ const TimeTableListPage = () => {
     return (
         <div className="flex h-screen overflow-hidden">
             {/* Sidebar */}
-            <div className="w-[250px] h-screen fixed left-0 top-0 bg-white shadow-md">
+            <div className="w-[250px] h-screen fixed left-0 top-0 bg-[#e8f5f0] shadow-md">
                 <Sidebar />
             </div>
 

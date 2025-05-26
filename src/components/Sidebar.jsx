@@ -16,10 +16,17 @@ import pStudentIconActive from "../assets/icons/pstudent-active.png";
 import logo from "../assets/icons/logo.png";
 import calendarIcon from "../assets/icons/Calendar.png";
 import calendarIconActive from "../assets/icons/Calendar-active.png";
+import absencesIcon from "../assets/icons/absences.png";
+import absencesIconActive from "../assets/icons/absences-active.png";
+import justificationIcon from "../assets/icons/justification.png";
+import justificationIconActive from "../assets/icons/justification-active.png";
 
 
 const Sidebar = () => {
   const location = useLocation();
+  const isAbsencesSection = location.pathname.startsWith("/absences");
+  const JustifySection = location.pathname.startsWith("/justifications");
+
 
   return (
     <div className="fixed left-0 top-0 w-[268px] h-full bg-[#52BD94E8] text-white flex flex-col p-5  shadow-lg z-40  overflow-visible">
@@ -44,6 +51,8 @@ const Sidebar = () => {
             text="Time Table"
             active={location.pathname.startsWith("/time-table")}
           />
+              <SidebarItem to="/absences/students" icon={absencesIcon} iconActive={absencesIconActive} text="Absences" active={isAbsencesSection} />
+              <SidebarItem to="/justifications" icon={justificationIcon} iconActive={justificationIconActive} text="Justifications" active={JustifySection} />
         </ul>
       </nav>
     </div>
